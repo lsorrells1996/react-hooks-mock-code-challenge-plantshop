@@ -14,10 +14,20 @@ function PlantPage() {
 
   }, [])
 
+  const createPlant = (newPlant) => {
+    setPlants(oldPlants => {
+      return [...oldPlants, newPlant]
+    })
+  }
+
+  const handleFilter = e => {
+    return e.target.value
+  }
+
   return (
 
     <main>
-      <NewPlantForm />
+      <NewPlantForm createPlant={createPlant} />
       <Search />
       <PlantList plants={plants} />
     </main>
